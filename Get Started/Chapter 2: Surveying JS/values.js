@@ -1,6 +1,6 @@
 "use strict";
 
-// greeting("My name is Thad");
+// example: greeting("My name is Thad");
 // "My name is Thad" - primitive string literal
 // Quotes are delimiters
 
@@ -26,3 +26,6 @@ let value;
 while (value != undefined) {
   console.log("Still got something!");
 }
+
+// Final primitive literal - symbol - hidden unguessable value
+// example: hitchhikersGuide[Symbol("meaning of life")];
