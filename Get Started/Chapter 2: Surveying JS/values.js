@@ -15,3 +15,8 @@ while (false) {
 }
 // boolean as the condition for the while loop, number as the value printed to the console
 // will never print because always false; a condition of true would print pi forever
+// number variations - Math.PI and bigint primitive type (for arbitrarily large numbers)
+
+// numbers usually used for counting steps, as in loops, or for accessing info by position, as in arrays
+const names = ["Kara", "Thad"];
+console.log(`My name is ${names[1]}.`);
