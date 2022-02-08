@@ -20,3 +20,9 @@ while (false) {
 // numbers usually used for counting steps, as in loops, or for accessing info by position, as in arrays
 const names = ["Kara", "Thad"];
 console.log(`My name is ${names[1]}.`);
+
+// Other primitive literals - undefined and null - emptiness
+let value;
+while (value != undefined) {
+  console.log("Still got something!");
+}
