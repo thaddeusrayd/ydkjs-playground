@@ -18,7 +18,7 @@ while (false) {
 // number variations - Math.PI and bigint primitive type (for arbitrarily large numbers)
 
 // numbers usually used for counting steps, as in loops, or for accessing info by position, as in arrays
-const names = ["Kara", "Thad"];
+const names = ["Kara", "Thad", "Bob", "Renee"];
 console.log(`My name is ${names[1]}.`);
 
 // Other primitive literals - undefined and null - emptiness
@@ -29,3 +29,10 @@ while (value != undefined) {
 
 // Final primitive literal - symbol - hidden unguessable value
 // example: hitchhikersGuide[Symbol("meaning of life")];
+
+// Arrays and Objects
+// Other value type besides primitive is object
+// Arrays are actually objects comprised of an ordered and numerically indexed list of data
+console.log(names.length); // 4
+console.log(names[0]); // Kara
+console.log(names[1]); // Thad
