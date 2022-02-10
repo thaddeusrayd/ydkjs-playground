@@ -30,6 +30,7 @@ while (value != undefined) {
 // Final primitive literal - symbol - hidden unguessable value
 // example: hitchhikersGuide[Symbol("meaning of life")];
 
+//
 // Arrays and Objects
 // Other value type besides primitive is object
 // Arrays are actually objects comprised of an ordered and numerically indexed list of data
@@ -51,3 +52,16 @@ console.log(`My name is ${me.first}.`); // My name is Thad.
 // Location: first
 // Optionally, you can use bracket notation ( me["first"] ) to access information via an object's property/key
 console.log(`My name is ${me["first"]}.`); // My name is Thad.
+
+//
+// Value Type Determination
+
+// typeof operator will tell type of a value if primitive, and just "object" if not
+console.log(typeof 45); // "number"
+console.log(typeof "kara"); // "string"
+console.log(typeof true); // "boolean"
+console.log(typeof undefined); // "undefined"
+console.log(typeof null); // "object" -- WHY (we'll get there)
+console.log(typeof { first: "Thad" }); // "object"
+console.log(typeof ["Thad", "Kara", "Bob", "Renee"]); // "object"
+console.log(typeof function hello() {}); // "function"
