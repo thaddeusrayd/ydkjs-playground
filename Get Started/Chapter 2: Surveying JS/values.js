@@ -65,3 +65,6 @@ console.log(typeof null); // "object" -- WHY (we'll get there)
 console.log(typeof { first: "Thad" }); // "object"
 console.log(typeof ["Thad", "Kara", "Bob", "Renee"]); // "object"
 console.log(typeof function hello() {}); // "function"
+// So null and functions return a little differently. Null returns "object", and functions don't.
+// Converting types is called "coercion"
+// Primitives and objects behave differently when assigned or passed around -- we'll get to that later.
