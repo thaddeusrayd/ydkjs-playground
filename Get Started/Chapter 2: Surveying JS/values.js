@@ -36,3 +36,18 @@ while (value != undefined) {
 console.log(names.length); // 4
 console.log(names[0]); // Kara
 console.log(names[1]); // Thad
+// Arrays can hold any value type (object, primitive, even functions) --- note: functions are a sub-type of object, just like arrays
+
+// Objects are more general than arrays - unordered, keyed - accesible by string location ("key" or "property")
+var me = {
+  first: "Thad",
+  last: "Daniels",
+  age: 28,
+  specialties: ["weightlifting", "Spanish"],
+};
+
+console.log(`My name is ${me.first}.`); // My name is Thad.
+// Object: me
+// Location: first
+// Optionally, you can use bracket notation ( me["first"] ) to access information via an object's property/key
+console.log(`My name is ${me["first"]}.`); // My name is Thad.
