@@ -61,3 +61,22 @@ actors[2] = "Tom Cruise"; // (this technically works)
 // actors = []; // (this does not) // (commented out for terminal output)
 // best semantic use for const is with primitive values, as with myBirthday above
 // summation = const variables can be "mutated" but cannot be "reassigned" - to avoid confusion, use primitives
+
+// other examples of variable declaration:
+function hello(myName) {
+  console.log(`Hello, ${myName}.`);
+}
+
+hello("Thad");
+// the identifier < hello > is created in the outer scope, automatically associated and references the function,
+// but myName parameter is created only inside the function, so it's only available in the function scope.
+// < hello > and myName will behave as var-declared:
+console.log(myName); // Thad // because myName behaves like it's var-declared, we can access it here
+
+// catch clause // (example commented out for terminal output)
+// try {
+//   someError();
+// } catch (err) {
+//   console.log(err);
+// }
+// < err > is block-scoped to the catch clause, as if declared using < let >
