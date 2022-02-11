@@ -47,3 +47,22 @@ var msg = returnGreeting("Thad");
 
 console.log(msg); // Hello, Thad!
 // you can only return one value, but if you have to return more, you can wrap them in an object value
+
+// since functions are themselves values, they can be assigned as properties on objects:
+var whatToSay = {
+  greeting() {
+    console.log("Hello!");
+  },
+  question() {
+    console.log("What's your name?");
+  },
+  answer() {
+    console.log("My name is Thad.");
+  },
+};
+
+whatToSay.greeting(); // Hello!
+// there are three functions held in the object held by the whatToSay variable.
+// each function can be called, as we did with greeting(), by accessing the property
+// and retrieving the function reference value.
+// compare this to the more sophisticated < class > syntax discussed later
