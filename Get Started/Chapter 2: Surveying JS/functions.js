@@ -33,7 +33,17 @@ function greeting(myName) {
   console.log(`Hello, ${myName}!`);
 }
 
-greeting("Thad");
+greeting("Thad"); // Hello, Thad!
 // myName is a parameter - a local variable inside a function
 // functions can be designed to receive any number of parameters, including none at all
 // parameters are assigned the value given to them in their respective positions in the call - in this case, "Thad"
+
+// functions can also *return* values using < return >:
+function returnGreeting(myName) {
+  return `Hello, ${myName}!`;
+}
+
+var msg = returnGreeting("Thad");
+
+console.log(msg); // Hello, Thad!
+// you can only return one value, but if you have to return more, you can wrap them in an object value
