@@ -25,3 +25,15 @@ var awesomeFunction = function (coolThings) {
 //              IMPORTANT: in JS, functions are *values* that can be *assigned* and *passed around*
 //                  they are a special kind of object value type. This is essential to support
 //                  the Functional Programming (FP) pattern. Not all languages do this.
+
+//
+// Parameters
+// JS functions can receive parameter input:
+function greeting(myName) {
+  console.log(`Hello, ${myName}!`);
+}
+
+greeting("Thad");
+// myName is a parameter - a local variable inside a function
+// functions can be designed to receive any number of parameters, including none at all
+// parameters are assigned the value given to them in their respective positions in the call - in this case, "Thad"
