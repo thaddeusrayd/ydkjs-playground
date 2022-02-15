@@ -58,4 +58,90 @@ mathNotes.print();
 // to be organized together with their behaviors (addPage(..) and print())
 
 //
+// Class inheritance (or "polymorphism")
+// Ex:
+class Publication {
+  constructor(title, author, pubDate) {
+    this.title = title;
+    this.author = author;
+    this.pubDate = pubDate;
+  }
+
+  print() {
+    console.log(`
+        Title: ${this.title}
+        By: ${this.author}
+        ${this.pubDate}
+    `);
+  }
+}
+// Publication defines a set of common behaviors that any publication may need
+// More specific types of publications:
+class Book extends Publication {
+  constructor(bookDetails) {
+    super(bookDetails.title, bookDetails.author, bookDetails.publishedOn);
+    this.publisher = bookDetails.publisher;
+    this.ISBN = bookDetails.ISBN;
+  }
+
+  print() {
+    super.print();
+    console.log(`
+        Publisher: ${this.publisher}
+        ISBN: ${this.ISBN}
+    `);
+  }
+}
+
+class BlogPost extends Publication {
+  constructor(title, author, pubDate, URL) {
+    super(title, author, pubDate);
+    this.URL = URL;
+  }
+
+  print() {
+    super.print();
+    console.log(this.URL);
+  }
+}
+// both Book and BlogPost uses << extends >> clause to extend the definition of Publication to include additional behavior
+// super(..) delegates the parent (Publication) class constructor for its work, and then adds things based on publication type
+// these extentions are called sub-classes or child classes
+
+// Example usage of these child classes:
+var YDKJS = new Book({
+  title: "You Don't Know JS",
+  author: "Kyle Simpson",
+  publishedOn: "June 2014",
+  publisher: "O'Reilly",
+  ISBN: "123456-789",
+});
+
+YDKJS.print();
+// Title: You Don't Know JS
+// By: Kyle Simpson
+// June 2014
+//
+// Publisher: O'Reilly
+// ISBN: 123456-789
+
+var forAgainstLet = new BlogPost(
+  "For and Against Let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let"
+);
+
+forAgainstLet.print();
+// Title: For and Against Let
+// By: Kyle Simpson
+// October 27, 2014
+//
+// https://davidwalsh.name/for-and-against-let
+
+// notice that both child classes have their own print() method, which overrides the parent print
+// therefore we use << super >> to invoke the parent print()
+// POLYMORPHISM - the fact that both the inherited and overridden methods can have the same name and coexist
+
+//
 //
