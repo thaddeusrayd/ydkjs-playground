@@ -247,4 +247,70 @@ moduleForAgainstLet.print();
 
 //
 // ES Modules
+// ESMs were introduced in ES6 and account for variations in AMD, UMD, and CommonJS
+// implementation differs slightly from classic module:
+// 1. no wrapping function - the wrapping context is a file - an ESM is always file-based - one file, one module
+// 2. no specific interaction with a module's "API" -
+//  use << export >> keyword to add a variable or method to public API defintion
+//  if something is definited in the module, but not exported, it stays hidden
+// 3. no instatiation - just import to use - only one instance ever created: the first import - all other imports reference the first
+//  if you need to support multiple instances, you have to create classic module-style "factory function" on the ESM defintion
+
+// Example using Publication, Book, and BlogPost with multiple instances (therefore classic module AND ESM):
+// you have a file called publication.js:
+function printDetails(title, author, pubDate) {
+  console.log(`
+    Title: ${title}
+    By: ${author}
+    ${pubDate}
+    `);
+}
+
+export function create(title, author, pubDate) {
+  var publicAPI = {
+    print() {
+      printDetails(title, author, pubDate);
+    },
+  };
+
+  return publicAPI;
+}
+// to import and use this module, form another ES module like blogpost.js:
+import { create as createPub } from "publication.js";
+
+function printDetails(pub, URL) {
+  pub.print();
+  console.log(URL);
+}
+
+export function create(title, author, pubDate, URL) {
+  var pub = createPub(title, author, pubDate);
+
+  var publicAPI = {
+    print() {
+      printDetails(pub, URL);
+    },
+  };
+
+  return publicAPI;
+}
+// finally, to use this module, we import another ES module like main.js:
+import { create as newBlogPost } from "blogpost.js";
+
+var forAgainstLet = newBlogPost(
+  "For and against let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let"
+);
+
+forAgainstLet.print();
+// Title: For and against let
+// By: Kyle Simpson
+// October 27, 2014
+// https://davidwalsh.name/for-and-against-let
+
 //
+// NOTE: the << as newBlogPost >> clause in the import statement is optional; if omitted, the top-level function just
+// called create(..) would be imported. We renamed for readability; the more generic factory name create(..) is more
+// semantically descriptive when working as newBlogPost(..)
