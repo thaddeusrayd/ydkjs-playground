@@ -155,7 +155,7 @@ forAgainstLet.print();
 // and returns an instance of the module with one or more functions exposed that can operate on the module's hidden data
 // a module of this form is just a function, and calling it produces an instance of it - known as "module factories"
 // classic module example of the Publication, Book, and BlogPost classes from above:
-function Publication(title, author, pubDate) {
+function ModulePublication(title, author, pubDate) {
   var publicAPI = {
     print() {
       console.log(`
@@ -169,8 +169,8 @@ function Publication(title, author, pubDate) {
   return publicAPI;
 }
 
-function Book(bookDetails) {
-  var pub = Publication(
+function ModuleBook(bookDetails) {
+  var pub = ModulePublication(
     bookDetails.title,
     bookDetails.author,
     bookDetails.publishedOn
@@ -189,8 +189,8 @@ function Book(bookDetails) {
   return publicAPI;
 }
 
-function BlogPost(title, author, pubDate, URL) {
-  var pub = Publication(title, author, pubDate);
+function ModuleBlogPost(title, author, pubDate, URL) {
+  var pub = ModulePublication(title, author, pubDate);
 
   var publicAPI = {
     print() {
@@ -201,3 +201,50 @@ function BlogPost(title, author, pubDate, URL) {
 
   return publicAPI;
 }
+// comparing classic module and class forms:
+// 1a. class stores data and methods in object form, which must be accessed by << this >>
+// 1b. in modules, data and methods are accessed as identifier variables in scope, without << this >>
+// 2a. with classes, an instance's "API" is implicit in the class definition, and everything is public
+// 2b. with module, you explicitly create and return an object with any public methods,
+//  and any data or methods not referenced remain private - inside the factory function
+
+// forms you may run across - Asynchronous Module Definition (AMD), Universal Module Definition (UMD),
+//  and CommonJS (classic Node.js-style modules) -- the variations are minor, but they rely on the same principles
+// Example of instantiation:
+var moduleYDKJS = ModuleBook({
+  title: "You Don't Know JS",
+  author: "Kyle Simpson",
+  publishedOn: "June 2014",
+  publisher: "O'Reilly",
+  ISBN: "123456-789",
+});
+
+moduleYDKJS.print();
+// Title: You Don't Know JS
+// By: Kyle Simpson
+// June 2014
+//
+//
+// Publisher: O'Reilly
+// ISBN: 123456-789
+
+var moduleForAgainstLet = ModuleBlogPost(
+  "For and Against Let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let"
+);
+
+moduleForAgainstLet.print();
+// Title: For and Against Let
+// By: Kyle Simpson
+// October 27, 2014
+//
+// https://davidwalsh.name/for-and-against-let
+
+//
+// the only observable difference here is the lack of using << new >> and calling the module factories like functions
+
+//
+// ES Modules
+//
