@@ -149,4 +149,55 @@ forAgainstLet.print();
 // also like classes, modules can include or access data and behavior from other modules
 // one of the major differences - syntax
 
-//
+// Classic Modules
+// ES6 added a specific native syntax for modules, but they've been used since the early days
+// key hallmarks of classic modules: outer function - runs at least once
+// and returns an instance of the module with one or more functions exposed that can operate on the module's hidden data
+// a module of this form is just a function, and calling it produces an instance of it - known as "module factories"
+// classic module example of the Publication, Book, and BlogPost classes from above:
+function Publication(title, author, pubDate) {
+  var publicAPI = {
+    print() {
+      console.log(`
+        Title: ${title}
+        By: ${author}
+        ${pubDate}
+      `);
+    },
+  };
+
+  return publicAPI;
+}
+
+function Book(bookDetails) {
+  var pub = Publication(
+    bookDetails.title,
+    bookDetails.author,
+    bookDetails.publishedOn
+  );
+
+  var publicAPI = {
+    print() {
+      pub.print();
+      console.log(`
+        Publisher: ${bookDetails.publisher}
+        ISBN: ${bookDetails.ISBN}
+      `);
+    },
+  };
+
+  return publicAPI;
+}
+
+function BlogPost(title, author, pubDate, URL) {
+  var pub = Publication(title, author, pubDate);
+
+  var publicAPI = {
+    print() {
+      pub.print();
+      console.log(URL);
+    },
+  };
+
+  return publicAPI;
+}
