@@ -144,4 +144,9 @@ forAgainstLet.print();
 // POLYMORPHISM - the fact that both the inherited and overridden methods can have the same name and coexist
 
 //
+// Modules
+// pattern that has essentially the same goal as classes - *group data and behavior into logical units*
+// also like classes, modules can include or access data and behavior from other modules
+// one of the major differences - syntax
+
 //
