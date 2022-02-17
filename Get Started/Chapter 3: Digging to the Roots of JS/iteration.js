@@ -12,3 +12,5 @@
 // the iterator pattern defines a data structure called an "iterator" that has a reference to an underlying data source
 //  (like the query result rows from our example) which exposes a method like next(). Calling next() returns the next piece of data,
 //  like the record or row from our example
+// you don't always know how many pieces of data there are, so the pattern usually indicates completion by some special
+//  value or exception once it iterations through the entire selection or goes past the end
