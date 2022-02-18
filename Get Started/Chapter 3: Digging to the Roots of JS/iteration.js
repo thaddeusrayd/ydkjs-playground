@@ -27,10 +27,10 @@
 // given an iterator of some data source:
 // var it = /*..*/; // (commented out for error avoidance)
 
-// loop over its results one at a time
-for (let val of it) {
-  console.log(`Iterator value: ${val}`);
-}
+// loop over its results one at a time // (commented out for execution)
+// for (let val of it) {
+//  console.log(`Iterator value: ${val}`);
+//}
 // Iterator value: ..
 // Iterator value: ..
 // ..
@@ -42,13 +42,28 @@ for (let val of it) {
 // spread an iterator into an array,
 // with each iterated value occupying
 // an array element position.
-var vals = [...it];
+// var vals = [...it]; // (commented out for execution)
 
 // function call spread example:
 // spread an iterator into a function,
 // call with each iterated value
 // occupying an argument position
-doSomethingUseful(...it);
+// doSomethingUseful(...it); // (commented out for execution)
 
 //
-//
+// Iterables
+// an iterable is a value that can be iterated over
+// ES6 protocol automatically creates an iterator instance from an iterable, and consumes just that iterator instance to completion
+// a single iterable can be iterated more than once, creating a new iterator instance each time
+// so where do we find iterables?
+// iterable data structures/collection types - strings, arrays, maps, sets, and others
+
+// an array is an iterable:
+var arr = [10, 20, 30];
+
+for (let val of arr) {
+  console.log(`Array value: ${val}`);
+}
+// Array value: 10
+// Array value: 20
+// Array value: 30
