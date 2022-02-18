@@ -13,4 +13,10 @@
 //  (like the query result rows from our example) which exposes a method like next(). Calling next() returns the next piece of data,
 //  like the record or row from our example
 // you don't always know how many pieces of data there are, so the pattern usually indicates completion by some special
-//  value or exception once it iterations through the entire selection or goes past the end
+//  value or exception once it iterations through the entire selection and goes *past the end*
+// the iterator pattern establishes a standardized way of processing data, rather than a different way for each source
+// ES6 defines a next() method whose return is an object called an "iterator result", which has << value >> and << done >> properties,
+//  where << done >> is a boolean that's << false >> until the iteration is complete
+
+//
+// Consuming Iterators
