@@ -111,3 +111,10 @@ for (let [idx, val] of arr.entries()) {
 // [0]: 10
 // [1]: 20
 // [2]: 30
+
+// for the most part, all JS built-in iterables have three available iterator forms: keys(), values(), and entries()
+
+// NOTE: here we started talking about consuming iterators, but then switched to talking about iterating over iterables
+//  the iteration-consumption protocol expects an iterable, but the reason we can provide a direct iterator is that
+//  an iterator is just an iterable of itself! When we create an iterator instance from an existing iterator,
+//  the iterator itself is returned.
