@@ -25,11 +25,11 @@
 // << for..of >> loop
 // example:
 // given an iterator of some data source:
-var it = /*..*/;
+// var it = /*..*/; // (commented out for error avoidance)
 
 // loop over its results one at a time
 for (let val of it) {
-    console.log(`Iterator value: ${val}`)
+  console.log(`Iterator value: ${val}`);
 }
 // Iterator value: ..
 // Iterator value: ..
@@ -39,4 +39,3 @@ for (let val of it) {
 // to spread an iterator, you have to have something to spread into - an array or an argument list for a function call
 
 // array spread example:
-
