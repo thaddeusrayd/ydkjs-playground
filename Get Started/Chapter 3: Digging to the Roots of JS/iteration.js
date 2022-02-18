@@ -20,3 +20,23 @@
 
 //
 // Consuming Iterators
+// ES6 includes several syntaxes and apis for standard consumption of iterators:
+
+// << for..of >> loop
+// example:
+// given an iterator of some data source:
+var it = /*..*/;
+
+// loop over its results one at a time
+for (let val of it) {
+    console.log(`Iterator value: ${val}`)
+}
+// Iterator value: ..
+// Iterator value: ..
+// ..
+
+// << ... >> operator ("spread" and "rest") - "spread" is the iterator consumer
+// to spread an iterator, you have to have something to spread into - an array or an argument list for a function call
+
+// array spread example:
+
