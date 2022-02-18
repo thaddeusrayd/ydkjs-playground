@@ -39,3 +39,16 @@ for (let val of it) {
 // to spread an iterator, you have to have something to spread into - an array or an argument list for a function call
 
 // array spread example:
+// spread an iterator into an array,
+// with each iterated value occupying
+// an array element position.
+var vals = [...it];
+
+// function call spread example:
+// spread an iterator into a function,
+// call with each iterated value
+// occupying an argument position
+doSomethingUseful(...it);
+
+//
+//
