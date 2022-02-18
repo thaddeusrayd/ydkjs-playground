@@ -77,3 +77,37 @@ var greeting = "Hello world!";
 var chars = [...greeting];
 
 console.log(chars); // [ 'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!' ]
+
+// a << map >> data structure uses objects as keys, associating a value with that object
+// maps have a different default iteration - not just iterating values, but *entries* instead
+// an entry is a "tuple" (2-element array) including a key and a value
+// Example:
+
+// given two DOM elements, btn1 and btn2
+var buttonNames = new Map();
+buttonNames.set(btn1, "Button 1");
+buttonNames.set(btn2, "Button 2");
+
+for (let [btn, btnName] of buttonNames) {
+  btn.addEventListener("click", function onClick() {
+    console.log(`Clicked ${btnName}`);
+  });
+}
+// in the for..of loop over the default map iteration, we use [btn, btnName] (array destructuring)
+//  to break down each consumed tuple into their respective key/value pairs (btn1 / "Button 1" and btn2 / "Button 2")
+// each of the built-in JS iterables has a default, but you can use a specific iteration if needed
+// for example, if we only wanted to consume the values of buttonNames, we can call values() to get a values-only iterator:
+for (let btnName of buttonNames.values()) {
+  console.log(btnName);
+}
+// Button 1
+// Button 2
+
+// or if we wanted the index AND value of an array iteration, we can use entries() to create an entries iterator:
+var arr = [10, 20, 30];
+for (let [idx, val] of arr.entries()) {
+  console.log(`[${idx}]: ${val}`);
+}
+// [0]: 10
+// [1]: 20
+// [2]: 30
