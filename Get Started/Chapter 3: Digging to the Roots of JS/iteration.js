@@ -67,3 +67,13 @@ for (let val of arr) {
 // Array value: 10
 // Array value: 20
 // Array value: 30
+
+// since array are iterables, we can shallow-copy an array with spread:
+var arrCopy = [...arr];
+console.log(arrCopy); // [ 10, 20, 30]
+
+// we can also iterate characters in a string:
+var greeting = "Hello world!";
+var chars = [...greeting];
+
+console.log(chars); // [ 'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!' ]
