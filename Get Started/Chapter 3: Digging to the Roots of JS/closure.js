@@ -46,3 +46,7 @@ console.log(incBy1()); // 2
 console.log(incBy3()); // 3
 console.log(incBy3()); // 6
 console.log(incBy3()); // 9
+// each instance of the inner increaseCount() function is closed over both the << count >> and << step >> variables
+//  from the scope of counter(), the outer function
+// << step >>, from the outer scope, remains the same over time, but << count >> is updated with each invocation of increaseCount()
+// since closure is over variables, and not just snapshots, the updates are preserved
