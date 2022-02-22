@@ -50,3 +50,13 @@ console.log(incBy3()); // 9
 //  from the scope of counter(), the outer function
 // << step >>, from the outer scope, remains the same over time, but << count >> is updated with each invocation of increaseCount()
 // since closure is over variables, and not just snapshots, the updates are preserved
+
+// closure is most common when working with async code, such as with callbacks:
+function getSomeData(url) {
+  ajax(url, function onResponse(resp) {
+    console.log(`Response (from ${url}): ${resp}`);
+  });
+}
+
+getSomeData("https://some.url/wherever");
+// Response (from https://some.url/wherever): ...
