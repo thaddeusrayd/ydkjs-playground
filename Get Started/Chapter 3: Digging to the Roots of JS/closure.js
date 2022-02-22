@@ -60,3 +60,23 @@ function getSomeData(url) {
 
 getSomeData("https://some.url/wherever");
 // Response (from https://some.url/wherever): ...
+
+// the inner function onResponse(resp) is closed over <<url>>, and thus preserves and remembers it
+//  until the ajax call returns and executes onResponse(resp)
+// getSomeData() finishes right away, but the <<url>> parameter variable is kept alive as long as it has to
+
+// the outer scope doesn't have to be a function, though it usually is
+// * just that there has to be at least one variable in the outer scope that's accessed by the inner function *
+// Ex:
+for (let [idx, btn] of buttons.entries()) {
+  btn.addEventListener("click", function onClick() {
+    console.log(`Clicked on button (${idx})!`);
+  });
+}
+// each iteration of this loop will get new block-scoped idx and btn variables because the loop uses <<let>> declarations
+// it also creates a new inner onClick() function every time, which closes over idx, so idx is preserved as long as
+//  the click handler is set on the btn
+// when each button is clicked, its handler can print its associated index
+// NOTE: this closure is not over the index *value*, but over the variable <<idx>> itself
+
+// more on closures in Book 2: Scope & Closures
