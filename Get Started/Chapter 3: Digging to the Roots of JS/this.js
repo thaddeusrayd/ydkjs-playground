@@ -33,3 +33,29 @@ assignment(); // Kyle says to study undefined // if using strict mode, it'll jus
 // assignment() is called as a normal function with no execution context
 // without strict mode, context-aware functions like these default to the context of the global object (window in the browser)
 // since there is no global <<topic>> variable, this.topic resolves to undefined
+
+// now consider:
+var homework = {
+  topic: "JS",
+  assignment: assignment,
+};
+
+homework.assignment(); // Kyle says to study JS
+// a copy of the assignment function reference is set as a property on the homework object and called as homework.assignment()
+// that means that <<this>> for that function call will be the homework object, so this.topic resolves to "JS"
+
+// lastly:
+var otherHomework = {
+  topic: "Math",
+};
+
+assignment.call(otherHomework); // Kyle says to study Math
+// a third way to invoke a function is with the call() method
+// this takes an object (otherHomework) to use for setting the <<this>> reference for the call
+// the property reference this.topic resolves to "Math"
+
+// the same context-aware function, invoked in three different ways, gives three different answers for what <<this>> references
+
+// the benefit of this-aware functions is the ability to reuse a single function with data from different objects
+// a function that closes over a scope can never reference a different scope or set of variables
+// but a function with a dynamic <<this>> context awareness can be helpful for certain tasks
