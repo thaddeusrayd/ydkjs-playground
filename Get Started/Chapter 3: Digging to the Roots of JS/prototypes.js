@@ -21,3 +21,6 @@ var homework = {
 // observe:
 homework.toString(); // [object Object]
 // this works even though <homework> doesn't have a <toString> method -- it defaults to the Object.prototype object
+
+//
+// Object Linkage
