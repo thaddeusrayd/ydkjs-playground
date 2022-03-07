@@ -28,3 +28,5 @@ console.log(homework.toString()); // [object Object]
 var otherHomework = Object.create(homework);
 
 console.log(otherHomework.topic); // JS
+// the first argument to Object.create() specifies an object to link the new object to, then returns the new linked object
+// otherHomework  ---[[prototype]]--->  homework (topic: JS)  ---[[prototype]]--->  Object.prototype (toString())
