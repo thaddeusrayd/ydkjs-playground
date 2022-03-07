@@ -19,8 +19,12 @@ var homework = {
 // <homework> only has a single prop on it
 // however, its default prototype linkage connects to the <<Object.prototype>> object, which holds the common built-in object methods
 // observe:
-homework.toString(); // [object Object]
+console.log(homework.toString()); // [object Object]
 // this works even though <homework> doesn't have a <toString> method -- it defaults to the Object.prototype object
 
 //
 // Object Linkage
+// to define an object prototype linkage, use the Object.create() utility:
+var otherHomework = Object.create(homework);
+
+console.log(otherHomework.topic); // JS
