@@ -30,3 +30,17 @@ var otherHomework = Object.create(homework);
 console.log(otherHomework.topic); // JS
 // the first argument to Object.create() specifies an object to link the new object to, then returns the new linked object
 // otherHomework  ---[[prototype]]--->  homework (topic: JS)  ---[[prototype]]--->  Object.prototype (toString())
+
+// TIP: if an object is created using Object.create(null), it isn't prototype linked to anything
+
+// Consider:
+console.log(homework.topic); // JS
+console.log(otherHomework.topic); // JS
+
+otherHomework.topic = "Math";
+console.log(otherHomework.topic); // Math
+
+console.log(homework.topic); // JS
+
+// the assignment of <<topic>> creates a property directly on otherHomework, and there's no effect on <<homework>>
+// when we access the topic property of otherHomework, we now get the non-delegated value
