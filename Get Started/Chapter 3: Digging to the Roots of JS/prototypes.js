@@ -44,3 +44,6 @@ console.log(homework.topic); // JS
 
 // the assignment of <<topic>> creates a property directly on otherHomework, and there's no effect on <<homework>>
 // when we access the topic property of otherHomework, we now get the non-delegated value
+
+//
+// <<this>> revisited
