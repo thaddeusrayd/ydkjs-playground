@@ -65,3 +65,5 @@ jsHomework.study(); // Please study JS
 var mathHomework = Object.create(homework);
 mathHomework.topic = "Math";
 mathHomework.study(); // Please study Math
+// the two homework objects each prototype link to <<homework>>, which holds study()
+// js and math are each given their own topic prop
