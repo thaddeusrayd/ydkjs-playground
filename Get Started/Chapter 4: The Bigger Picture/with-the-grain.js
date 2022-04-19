@@ -1,0 +1,7 @@
+/*
+NOTES
+
+BE AWARE OF THE GRAIN
+
+
+*/
