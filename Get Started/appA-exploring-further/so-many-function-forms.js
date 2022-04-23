@@ -30,3 +30,15 @@ var awesomeFunction = function someName(coolThings) {
 };
 
 awesomeFunction.name; // "someName"
+
+// this is a *named function expression*, since the identifier someName is directly associated with the
+//  function expression at compile; the association with awesomeFunction doesn't happen until runtime
+//  at the time of that statement
+// they don't have to match -- sometimes it makes sense for them to, other times it doesn't
+
+// the explicit function name someName takes precedence when assigning a name to the <name> property
+
+//
+// Other Function Declaration Forms
+
+// generator function declaration:
