@@ -79,3 +79,24 @@ f = async (x) => {
   return y * 2;
 };
 someOperation((x) => x * 2);
+
+// arrow functions are syntatically anonymous - no direct name identifier
+// it may get an inferred name, but only if it's one of the assignment forms,
+//  not when it's passed as a function call argument (see last example)
+
+// funcs can also be specified in class definitions and object literal definitions
+// typically referred to as "methods":
+class SomethingKindaGreat {
+  // class methods
+  coolMethod() {} // no commas!
+  boringMethod() {}
+}
+
+var EntirelyDifferent = {
+  // object methods
+  coolMethod() {}, // yes ommas!
+  boringMethod() {},
+
+  // anonymous function expression property
+  oldSchool: function () {},
+};
