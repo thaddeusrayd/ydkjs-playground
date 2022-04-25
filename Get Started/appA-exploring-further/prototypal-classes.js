@@ -39,3 +39,21 @@ mathClass.welcome();
 //  Classroom.prototype object
 
 // mathClass doesn't have a welcome() prop/func, so it delegates to Classroom.prototype.welcome()
+
+// prototypal class pattern is discouraged in favor of ES6 classes:
+
+class Classroom {
+  constructor() {
+    // ..
+  }
+
+  welcome() {
+    console.log("Welcome, students!");
+  }
+}
+
+var mathClass = new Classroom();
+
+mathClass.welcome();
+
+// same prototypal linkage, much cleaner
