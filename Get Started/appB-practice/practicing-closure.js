@@ -11,7 +11,9 @@ function range(start, end) {
       results.push(i);
     }
   } else if (end === undefined) {
-      function rangeFinder(end) 
+    return function getEnd(end) {
+      return range(start, end);
+    };
   }
   console.log(results);
 }
